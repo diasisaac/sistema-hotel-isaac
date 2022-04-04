@@ -21,7 +21,7 @@ O Sistema visa gerenciar as reservas dos clientes de um hotel. Portanto, ele dev
 [Rails](https://rubyonrails.org)
 - 7.0.2.3
 
-[Codacy]()
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bfc3193a50374bb486018371b414121d)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lucas-romeiro/sistema-hotel&amp;utm_campaign=Badge_Grade)
 
 [Heroku](https://www.heroku.com)
 
