@@ -1,3 +1,5 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a58369af0a794b3cbede0921597f68ca?branch=main)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=giclayne/sistema-hotel&amp;utm_campaign=Badge_Grade)
+
 # Sistema de Hotel
 
 ## ![Github](https://github.githubassets.com/images/icons/emoji/octocat.png) Integrantes
@@ -20,8 +22,6 @@ O Sistema visa gerenciar as reservas dos clientes de um hotel. Portanto, ele dev
 
 [Rails](https://rubyonrails.org)
 - 7.0.2.3
-
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bfc3193a50374bb486018371b414121d)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lucas-romeiro/sistema-hotel&amp;utm_campaign=Badge_Grade)
 
 [Heroku](https://www.heroku.com)
 
