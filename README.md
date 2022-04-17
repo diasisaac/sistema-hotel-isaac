@@ -18,10 +18,10 @@ O Sistema visa gerenciar as reservas dos clientes de um hotel. Portanto, ele dev
 ## ![Github](https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png) Tecnologias usadas
 
 [Ruby](https://www.ruby-lang.org/pt/)
-* 3.1.1-1
+*  3.1.1-1
 
 [Rails](https://rubyonrails.org)
-* 7.0.2.2
+*  7.0.2.2
 
 [Heroku](https://www.heroku.com)
 
