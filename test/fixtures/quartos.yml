@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  andar: 1
+  diaria: 1.5
+  capacidade: 1
+  descricao: MyText
+
+two:
+  nome: MyString
+  andar: 1
+  diaria: 1.5
+  capacidade: 1
+  descricao: MyText
