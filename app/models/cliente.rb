@@ -9,7 +9,7 @@ class Cliente < ApplicationRecord
   has_many :quartos, through: :reservas
 
   def validar
-    if data_de_nascimento.present? && data_de_nascimento > Date.today
+    if data_de_nascimento.present? && data_de_nascimento > Time.zone.today
       errors.add(:data_de_nascimento, "Data invalida")
     end
   end
