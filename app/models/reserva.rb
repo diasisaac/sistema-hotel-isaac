@@ -18,7 +18,7 @@ class Reserva < ApplicationRecord
   validates :quarto_id, uniqueness: {scope: :quarto_id, message:"Já existe reserva para este quarto" }
 
   def validar_data_checkin
-    if  check_in.present? && check_in <= Date.today
+    if  check_in.present? && check_in <= Time.zone.today
       errors.add(:check_in, " A data deve ser de amanha ou posterior")
     end
   end
