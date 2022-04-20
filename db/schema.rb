@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_19_235510) do
+
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
     t.date "data_de_nascimento"
@@ -47,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_235510) do
     t.integer "numero_adultos"
     t.integer "numero_criancas"
     t.text "pedidos"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_reservas_on_cliente_id"

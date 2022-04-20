@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :reservas
   resources :quartos
   resources :funcionarios
