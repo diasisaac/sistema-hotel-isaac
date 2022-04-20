@@ -15,6 +15,4 @@ class QuartoTest < ActiveSupport::TestCase
     quarto.save
     assert quarto.update(nome: 'Apartamento de 2 Quartos', andar:'8', diaria: '100', capacidade: '5',descricao:'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito')
   end
-
-
 end
