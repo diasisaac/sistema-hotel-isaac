@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
+
+  resources :reservas
   resources :quartos
-  get "welcome/index"
   resources :funcionarios
   resources :clientes
   root to: 'welcome#index'

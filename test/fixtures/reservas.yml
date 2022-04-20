@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quarto: one
+  cliente: one
+  check_in: 2022-04-19
+  checkout: 2022-04-19
+  numero_adultos: 1
+  numero_criancas: 1
+  pedidos: MyText
+
+two:
+  quarto: two
+  cliente: two
+  check_in: 2022-04-19
+  checkout: 2022-04-19
+  numero_adultos: 1
+  numero_criancas: 1
+  pedidos: MyText
