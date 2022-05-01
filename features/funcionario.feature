@@ -7,12 +7,26 @@ Feature: Funcionario
   Scenario: criar um novo quarto corretamente
     Given eu estou na pagina de criar novo quarto
     When  eu crio um quarto de nome 'Apartamento 3 quartos' e andar '5' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito'
-    Then eu vejo que o quarto foi salvo
+    Then eu vejo que o quarto de nome 'Apartamento 3 quartos' foi salvo
 
 
   Scenario: editar quarto
     Given eu estou na pagina de quartos
-    And o quarto de nome 'Apartamento 3 quartos' existe
-    When eu edito o quarto de nome 'Apartamento 3 quartos' e andar '5' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito'
-    Then eu vejo que o quarto foi editado
+    And o quarto de nome 'Apartamento 3 quartos' e andar '5' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito' existe
+    When eu vou para página de editar quarto e edito o quarto de nome 'Apartamento 3 quartos' e andar '3' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito'
+    Then eu vejo que o quarto de nome 'Apartamento 3 quartos' foi editado
 
+  Scenario: criar um quarto sem nome
+    Given eu estou na pagina de criar novo quarto
+    When  eu crio um quarto de nome '' e andar '5' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito'
+    Then eu vejo uma mensagem de erro
+
+  Scenario: criar um quarto sem andar
+    Given eu estou na pagina de criar novo quarto
+    When  eu crio um quarto de nome 'Apartamento 3 quartos' e andar '' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito'
+    Then eu vejo uma mensagem de erro
+
+  Scenario: criar um quarto sem descricao
+    Given eu estou na pagina de criar novo quarto
+    When  eu crio um quarto de nome 'Apartamento 3 quartos' e andar '3' e diaria '100' e capacidade '5' e descricao ''
+    Then eu vejo uma mensagem de erro
