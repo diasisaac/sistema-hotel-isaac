@@ -72,6 +72,7 @@ group :test do
   gem "ffi"
   gem 'cucumber-rails',require: false
   gem 'database_cleaner'
+  gem 'rspec-expectations'
 end
 
 group :production, :actions do
