@@ -1,13 +1,16 @@
-Given ('estou na pagina de clientes') do
+Given('estou na pagina de clientes') do
   visit '/clientes'
   expect(page).to have_current_path('/clientes')
 end
-And('o cliente com o nome {string}, a data de nascimento {string}, o cpf {string}, o email {string} existe') do |nome, dataNascimento, cpf, email|
+And('o cliente com o nome {string}, a data de nascimento {string}, o cpf {string}, o email {string} e usuario {string} existe') do |nome, dataNascimento, cpf, email, usuario|
   visit '/clientes/new'
   fill_in 'cliente[nome]', :with => nome
   fill_in 'cliente[data_de_nascimento]', :with => dataNascimento
   fill_in 'cliente[cpf]', :with => cpf
   fill_in 'cliente[email]', :with => email
+  fill_in 'cliente[usuario_id]', :with => usuario
+
+
   click_button 'Create Cliente'
 end
 Given('estou na pagina de criar um novo cliente') do
@@ -15,32 +18,39 @@ Given('estou na pagina de criar um novo cliente') do
   expect(page).to have_current_path('/clientes/new')
 end
 
-When('eu preencho o nome {string}, a data de nascimento {string}, o cpf {string}, o email {string}') do |nome, dataNascimento, cpf, email|
+
+When('eu preencho o nome {string}, a data de nascimento {string}, o cpf {string}, o email {string} e usuario {string}') do |nome, dataNascimento, cpf, email, usuario|
+  visit '/clientes/new'
   fill_in 'cliente[nome]', :with => nome
   fill_in 'cliente[data_de_nascimento]', :with => dataNascimento
   fill_in 'cliente[cpf]', :with => cpf
   fill_in 'cliente[email]', :with => email
+  fill_in 'cliente[usuario_id]', :with => usuario
   click_button 'Create Cliente'
 end
+
+
 
 When('clico em deletar cliete') do
   click_button 'Destroy this cliente'
 end
 
 Then('eu vejo que o cliente foi deletado') do
-  expect(page).to have_content("Cliente was successfully destroyed")
+  expect(page).to have_content("You need to sign in or sign up before continuing.")
 end
 
 Then('eu vejo uma mensagem de email invalido') do
   expect(page).to have_content("Tamanho minimo 5 caracteres")
 end
 
-When('eu edito com o nome {string}, a data de nascimento {string}, o cpf {string}, o email {string}') do |nome, dataNascimento, cpf, email|
+
+When('eu edito o nome {string}, a data de nascimento {string}, o cpf {string}, o email {string} e usuario {string}') do |nome, dataNascimento, cpf, email, usuario|
   click_link 'Edit this cliente'
   fill_in 'cliente[nome]', :with => nome
   fill_in 'cliente[data_de_nascimento]', :with => dataNascimento
   fill_in 'cliente[cpf]', :with => cpf
   fill_in 'cliente[email]', :with => email
+  fill_in 'cliente[usuario_id]', :with => usuario
   click_button 'Update Cliente'
 end
 
@@ -49,9 +59,9 @@ Then('eu vejo uma mensagem de cliente editado com sucesso') do
 end
 
 
-Then('eu vejo que cliente com o cpf {string} foi criado') do |cpf|
-  expect(page).to have_content(cpf)
-  expect(page).to have_current_path("/clientes/" +  Cliente.last.id.to_s )
+Then('eu vejo que cliente com o email {string} foi criado') do |email|
+  expect(page).to have_content(email)
+
 end
 
 Then('eu vejo uma mensagem de cpf invalido') do
