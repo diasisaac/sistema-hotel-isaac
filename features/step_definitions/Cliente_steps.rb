@@ -39,7 +39,7 @@ Then('eu vejo que o cliente foi deletado') do
   expect(page).to have_content("You need to sign in or sign up before continuing.")
 end
 
-Then('eu vejo uma mensagem de email invalido') do
+Then('eu vejo uma mensagem sobre email invalido') do
   expect(page).to have_content("Tamanho minimo 5 caracteres")
 end
 
