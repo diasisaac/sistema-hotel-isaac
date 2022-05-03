@@ -3,7 +3,7 @@ class Reserva < ApplicationRecord
   belongs_to :cliente
 
 
-  validates :check_in, :checkout, :numero_adultos, :numero_criancas, presence: true
+  validates :quarto_id, :check_in, :checkout, :numero_adultos, :numero_criancas, presence: true
   validates_numericality_of :numero_criancas, :numero_adultos
   accepts_nested_attributes_for :quarto, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :cliente, reject_if: :all_blank, allow_destroy: true
@@ -15,7 +15,6 @@ class Reserva < ApplicationRecord
   validates_associated :quarto
   validates_associated :cliente
 
-  validates :quarto_id, uniqueness: {scope: :quarto_id, message:"Já existe reserva para este quarto" }
 
   def validar_data_checkin
     if  check_in.present? && check_in <= Time.zone.today

@@ -1,5 +1,43 @@
-<h1>Bem vindo ao Rails no Heroku</h1>
+<h1>Hotel ES</h1>
 
-<%= link_to 'Cliente', controller: 'clientes'%>
-<%= link_to 'Funcionario', controller: 'funcionarios'%>
-<%= link_to "Reservas", controller: 'reservas' %>
+<% if current_usuario %>
+
+  <p>Olá! Você está logado como <%= current_usuario.email %></p>
+
+  <% if current_usuario.cliente? %>
+
+    <% @cliente = Cliente.find_by(email: current_usuario.email) %>
+
+    <% if @cliente.nil? %>
+      <p>Cliente <%= link_to "Finalize seu cadastro", new_cliente_path(usuario_id: current_usuario.id, usuario_email: current_usuario.email) %> </p>
+
+    <% else %>
+      <p><%= link_to "Fazer uma nova reserva", new_reserva_path(cliente_id: @cliente.id) %></p>
+      <p><%= link_to "Alterar cadastro", edit_cliente_path(@cliente) %></p>
+
+      <% @reservasCliente = Reserva.where(cliente_id: @cliente.id) %>
+
+      <% if !@reservasCliente.present? %>
+        <p>O cliente ainda não possui reservas</p>
+      <% else %>
+        <p>O clinte já efetuou as seguintes reservas:</p>
+        <%= render 'reservas_cliente' %>
+      <% end %>
+    <% end %>
+
+  <% elsif Funcionario.find_by(email: current_usuario.email).nil? %>
+
+
+  <% elsif current_usuario.admin? %>
+    Admin <%= Usuario.count %>
+  <% end %>  <br/>
+
+  <%= button_to "Sign out", destroy_usuario_session_path, method: :delete, data: { turbo: false } %>
+<% else %>
+
+  <p>Seja bem vindo ao site do hotel ES 2021.1</p>
+  <p>Voce ainda não está logado!</p>
+
+  <%= link_to "Sign Up!", new_usuario_registration_path %>  <br/>
+  <%= link_to "Login", new_usuario_session_path %>
+<% end %>
