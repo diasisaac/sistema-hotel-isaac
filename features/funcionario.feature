@@ -25,18 +25,18 @@ Feature: Funcionario
     And eu estou logado no sistema
     And eu estou na pagina de criar novo quarto
     When  eu crio um quarto de nome '' e andar '5' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito'
-    Then eu vejo uma mensagem de erro
+    Then eu vejo uma mensagem de erro de invalidez
 
   Scenario: criar um quarto sem andar
     Given a conta com email 'kanbansenior@gmail.com' e senha '1234567kanban' existe
     And eu estou logado no sistema
     And eu estou na pagina de criar novo quarto
     When  eu crio um quarto de nome 'Apartamento 3 quartos' e andar '' e diaria '100' e capacidade '5' e descricao 'Cozinha privativa, Banheiro privativo, Ar-condicionado e WiFi Gratuito'
-    Then eu vejo uma mensagem de erro
+    Then eu vejo uma mensagem de erro de invalidez
 
   Scenario: criar um quarto sem descricao
     Given a conta com email 'kanbansenior@gmail.com' e senha '1234567kanban' existe
     And eu estou logado no sistema
     And eu estou na pagina de criar novo quarto
     When  eu crio um quarto de nome 'Apartamento 3 quartos' e andar '3' e diaria '100' e capacidade '5' e descricao ''
-    Then eu vejo uma mensagem de erro
+    Then eu vejo uma mensagem de erro de invalidez

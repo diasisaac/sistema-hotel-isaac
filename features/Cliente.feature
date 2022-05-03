@@ -38,4 +38,4 @@ Feature: Cliente
     And eu estou logado no sistema
     And estou na pagina de criar um novo cliente
     When eu preencho o nome 'Carlos Andre', a data de nascimento '1980-10-02', o cpf '', o email '' e usuario '1'
-    Then eu vejo uma mensagem de email invalido
+    Then eu vejo uma mensagem sobre email invalido
