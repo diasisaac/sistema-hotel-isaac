@@ -1,4 +1,5 @@
 class ClientesController < ApplicationController
+  before_action :authenticate_usuario!, only: [:create, :update, :destroy, :index, :show]
   before_action :set_cliente, only: %i[ show edit update destroy ]
 
   # GET /clientes or /clientes.json
@@ -13,6 +14,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    #@cliente.build_usuario
   end
 
   # GET /clientes/1/edit
@@ -22,6 +24,7 @@ class ClientesController < ApplicationController
   # POST /clientes or /clientes.json
   def create
     @cliente = Cliente.new(cliente_params)
+    @usuario = Usuario.find_by(email: params[:usuario_email])
 
     respond_to do |format|
       if @cliente.save
@@ -65,6 +68,6 @@ class ClientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :data_de_nascimento, :cpf, :email)
+      params.require(:cliente).permit(:nome, :data_de_nascimento, :cpf, :email, :usuario_id)
     end
 end

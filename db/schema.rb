@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_01_234514) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_02_011716) do
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
     t.date "data_de_nascimento"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_234514) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "usuario_id"
   end
 
   create_table "funcionarios", force: :cascade do |t|
