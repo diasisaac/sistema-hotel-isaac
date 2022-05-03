@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :data_de_nascimento, style: "display: block" %>
-    <%= form.date_field :data_de_nascimento %>
+    <%= form.date_field  :data_de_nascimento %>
   </div>
 
   <div>
@@ -28,7 +28,12 @@
 
   <div>
     <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, :value => params[:usuario_email]%>
+  </div>
+
+  <div>
+    <%= form.label :usuario_id, style: "display: block" %>
+    <%= form.text_field :usuario_id, :value => params[:usuario_id]%>
   </div>
 
   <div>

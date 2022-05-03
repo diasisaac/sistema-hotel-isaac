@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_19_235510) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_02_011716) do
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
     t.date "data_de_nascimento"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_235510) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "usuario_id"
   end
 
   create_table "funcionarios", force: :cascade do |t|
@@ -51,6 +52,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_235510) do
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_reservas_on_cliente_id"
     t.index ["quarto_id"], name: "index_reservas_on_quarto_id"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "funcao", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_usuarios_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
   add_foreign_key "reservas", "clientes"
