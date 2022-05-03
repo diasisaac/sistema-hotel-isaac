@@ -23,12 +23,12 @@ O Sistema visa gerenciar as reservas dos clientes de um hotel. Portanto, ele dev
 [Rails](https://rubyonrails.org)
 *   7.0.2.2
 
-[Heroku](https://sleepy-thicket-13796.herokuapp.com/)
+[Heroku](https://sistema-hotel-es.herokuapp.com/)
 
 ## ![Github](https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png) Status do Projeto
 
 Em andamento
 
-## ![Github](https://github.githubassets.com/images/icons/emoji/unicode/2328.png) Acessando o sistema
+## ![Github](https://github.githubassets.com/images/icons/emoji/unicode/2328.png) 
 
-[Clique aqui](https://glacial-woodland-28508.herokuapp.com/)
+
