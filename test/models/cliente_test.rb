@@ -9,9 +9,9 @@ class ClienteTest < ActiveSupport::TestCase
     cliente = Cliente.new(nome: '', data_de_nascimento: '1980-10-02', cpf: '98765432111', email: 'Carlos@gmail.com')
     assert_not cliente.save
   end
-  test "editanto cliente" do
+  test "editando cliente" do
     cliente = Cliente.new(nome: 'Carlos Andre', data_de_nascimento: '1980-10-02', cpf: '98765432111', email: 'Carlos@gmail.com')
-    cliente.save
+    assert cliente.save
     assert cliente.update(nome: 'João Paulo', data_de_nascimento: '1980-10-02', cpf: '98765432111', email: 'Carlos@gmail.com')
   end
-  end
+end
