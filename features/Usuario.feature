@@ -5,18 +5,18 @@ Feature: Usuário
 
   Scenario:Criar conta corretamente
     Given estou na pagina de criar conta
-    When eu preencho o email 'Erik@gmail.com', a senha '123456' e a confirmação de senha '123456'
+    When eu preencho o email 'Erik7@gmail.com', a senha '123456' e a confirmação de senha '123456'
     Then eu vejo que a conta foi criada com sucesso
 
   Scenario:Criar conta com senha invalida
     Given estou na pagina de criar conta
-    When eu preencho o email 'Erik@gmail.com', a senha '123' e a confirmação de senha '123'
+    When eu preencho o email 'Erik8@gmail.com', a senha '123' e a confirmação de senha '123'
     Then eu vejo uma mensagem de senha invalida
 
 
   Scenario:Criar conta com senhas diferentes
     Given estou na pagina de criar conta
-    When eu preencho o email 'Erik@gmail.com', a senha '123456' e a confirmação de senha 'abcdef'
+    When eu preencho o email 'Erik9@gmail.com', a senha '123456' e a confirmação de senha 'abcdef'
     Then eu vejo uma mensagem de senha invalida
 
   Scenario:Criar uma conta vazia
