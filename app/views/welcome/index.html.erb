@@ -26,10 +26,16 @@
     <% end %>
 
   <% elsif Funcionario.find_by(email: current_usuario.email).nil? %>
-
+    <p><%= link_to "Vizualizar Quartos", Quarto %></p> </br>
+    <p><%= link_to "Vizualizar Reservas", Reserva %></p> </br>
+    <p><%= link_to "Vizualizar Clientes", Cliente %></p>
 
   <% elsif current_usuario.admin? %>
-    Admin <%= Usuario.count %>
+    <p> O Sistem possui <%= Usuario.count %> usuarios. </p>
+    <p><%= link_to "Vizualizar Quartos", Quarto %></p> </br>
+    <p><%= link_to "Vizualizar Reservas", Reserva %></p> </br>
+    <p><%= link_to "Vizualizar Clientes", Cliente %></p>
+
   <% end %>  <br/>
 
   <%= button_to "Sign out", destroy_usuario_session_path, method: :delete, data: { turbo: false } %>
