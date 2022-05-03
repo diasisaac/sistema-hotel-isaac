@@ -32,6 +32,7 @@ end
 
 
 When('clico em deletar cliete') do
+  expect(page).to have_current_path("/clientes/" +  Cliente.last.id.to_s )
   click_button 'Destroy this cliente'
 end
 
@@ -45,6 +46,7 @@ end
 
 
 When('eu edito o nome {string}, a data de nascimento {string}, o cpf {string}, o email {string} e usuario {string}') do |nome, dataNascimento, cpf, email, usuario|
+  expect(page).to have_current_path("/clientes/" +  Cliente.last.id.to_s )
   click_link 'Edit this cliente'
   fill_in 'cliente[nome]', :with => nome
   fill_in 'cliente[data_de_nascimento]', :with => dataNascimento
