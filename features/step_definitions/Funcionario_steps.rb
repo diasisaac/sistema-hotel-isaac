@@ -77,7 +77,7 @@ Then('eu vejo que o quarto de nome {string} foi editado') do |nome|
 end
 
 
-Then('eu vejo uma mensagem de erro') do
+Then('eu vejo uma mensagem de erro de invalidez') do
 
   expect(page).to have_content("1 error prohibited this quarto from being saved:")
 end
