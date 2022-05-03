@@ -125,6 +125,6 @@ end
 
 Then('eu vejo as reservas listadas')do
 
-  expect(page).to have_link("Info")
+  expect(page).to have_link("Fazer uma nova reserva")
 end
 
