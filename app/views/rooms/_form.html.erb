@@ -1,0 +1,30 @@
+<%= form_with(model: room) do |form| %>
+  <%= render "layouts/nav/validation", item: @room %>
+
+  <div class="form-group">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, placeholder: "Ex.: Standard Room", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :capacity, style: "display: block" %>
+    <%= form.number_field :capacity, placeholder: "Ex.: 4", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price, style: "display: block" %>
+    <%= form.text_field :price, placeholder: "Ex.: 100.00", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :detail, style: "display: block" %>
+    <%= form.text_area :detail, placeholder: "Ex.: 1 cama de casal...",  class: "form-control" %>
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    <%= form.submit "Cadastrar", class: "btn btn-success btn-lg" %>
+  </div>
+
+<% end %>
