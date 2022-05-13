@@ -6,18 +6,20 @@
 
   <% if current_usuario.cliente? %>
 
+
     <% @cliente = Cliente.find_by(email: current_usuario.email) %>
 
     <% if @cliente.nil? %>
       <p>Cliente <%= link_to "Finalize seu cadastro", new_cliente_path(usuario_id: current_usuario.id, usuario_email: current_usuario.email) %> </p>
+      <p></p>
 
     <% else %>
       <p><%= link_to "Fazer uma nova reserva", new_reserva_path(cliente_id: @cliente.id) %></p>
       <p><%= link_to "Alterar cadastro", edit_cliente_path(@cliente) %></p>
 
-      <% @reservasCliente = Reserva.where(cliente_id: @cliente.id) %>
+      <% @reservas_cliente = Reserva.where(cliente_id: @cliente.id) %>
 
-      <% if !@reservasCliente.present? %>
+      <% if !@reservas_cliente.present? %>
         <p>O cliente ainda não possui reservas</p>
       <% else %>
         <p>O clinte já efetuou as seguintes reservas:</p>
@@ -26,6 +28,8 @@
     <% end %>
 
   <% elsif Funcionario.find_by(email: current_usuario.email).nil? %>
+    <% current_usuario.cliente! %>
+
     <p><%= link_to "Vizualizar Quartos", Quarto %></p> </br>
     <p><%= link_to "Vizualizar Reservas", Reserva %></p> </br>
     <p><%= link_to "Vizualizar Clientes", Cliente %></p>
@@ -40,10 +44,19 @@
 
   <%= button_to "Sign out", destroy_usuario_session_path, method: :delete, data: { turbo: false } %>
 <% else %>
-
   <p>Seja bem vindo ao site do hotel ES 2021.1</p>
   <p>Voce ainda não está logado!</p>
 
   <%= link_to "Sign Up!", new_usuario_registration_path %>  <br/>
   <%= link_to "Login", new_usuario_session_path %>
+
+  <div>
+    <h2>Consulta Quartos</h2>
+    <%= form_tag quartos_path, method: :get do %>
+      <%= text_field_tag "search[date_from]", nil, @search.date_from %>
+      <%= text_field_tag "search[date_to]", nil, @search.date_to %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
 <% end %>

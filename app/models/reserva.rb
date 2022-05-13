@@ -5,17 +5,15 @@ class Reserva < ApplicationRecord
 
   validates :quarto_id, :check_in, :checkout, :numero_adultos, :numero_criancas, presence: true
   validates_numericality_of :numero_criancas, :numero_adultos
-  accepts_nested_attributes_for :quarto, reject_if: :all_blank, allow_destroy: true
+  #accepts_nested_attributes_for :quarto, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :cliente, reject_if: :all_blank, allow_destroy: true
 
   validate :validar_data_checkin
   validate :validar_data_checkout
-
-
   validates_associated :quarto
   validates_associated :cliente
 
-
+  validates
   def validar_data_checkin
     if  check_in.present? && check_in <= Time.zone.today
       errors.add(:check_in, " A data deve ser de amanha ou posterior")

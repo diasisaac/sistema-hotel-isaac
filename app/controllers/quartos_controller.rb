@@ -58,6 +58,12 @@ class QuartosController < ApplicationController
     end
   end
 
+  def self.search(params)
+    params[:query].blank? all : where(
+      "nome LIKE ?", "%#{sanitize_sql_like(params[:query])}%"
+    )
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quarto
