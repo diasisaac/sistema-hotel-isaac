@@ -6,12 +6,6 @@
         <% end %>
     </li>
     <li class="nav-item">
-        <%= link_to new_room_path, class: "nav-link" do %>
-        <i data-feather="home"></i>
-        Cadastrar Quarto
-        <% end %>
-    </li>
-    <li class="nav-item">
         <%= link_to edit_user_registration_path, class: "nav-link" do %>
         <i data-feather="user"></i>
         Minha Conta
@@ -25,16 +19,4 @@
 </h6>
 
 <ul class="nav flex-column mb-2">
-    <li class="nav-item">
-        <%= link_to rooms_path, class: "nav-link" do %>
-        <i data-feather="list"></i>
-        Quartos Disponiveis
-        <% end %>
-    </li>
-    <li class="nav-item">
-        <%= link_to bookings_path, class: "nav-link" do %>
-        <i data-feather="list"></i>
-        Reservas Realizadas
-        <% end %>
-    </li>
 </ul>
