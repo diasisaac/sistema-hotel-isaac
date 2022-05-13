@@ -10,63 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_011716) do
-  create_table "clientes", force: :cascade do |t|
-    t.string "nome"
-    t.date "data_de_nascimento"
-    t.string "cpf"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "usuario_id"
-  end
-
-  create_table "funcionarios", force: :cascade do |t|
-    t.string "nome"
-    t.integer "cpf"
-    t.string "email"
-    t.string "cargo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "quartos", force: :cascade do |t|
-    t.string "nome"
-    t.integer "andar"
-    t.float "diaria"
-    t.integer "capacidade"
-    t.text "descricao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reservas", force: :cascade do |t|
-    t.integer "quarto_id", null: false
-    t.integer "cliente_id", null: false
+ActiveRecord::Schema[7.0].define(version: 2022_05_13_180547) do
+  create_table "bookings", force: :cascade do |t|
+    t.integer "room_id", null: false
+    t.integer "user_id", null: false
     t.date "check_in"
-    t.date "checkout"
-    t.integer "numero_adultos"
-    t.integer "numero_criancas"
-    t.text "pedidos"
+    t.date "check_out"
+    t.integer "guests"
+    t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cliente_id"], name: "index_reservas_on_cliente_id"
-    t.index ["quarto_id"], name: "index_reservas_on_quarto_id"
+    t.index ["room_id"], name: "index_bookings_on_room_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.integer "capacity"
+    t.float "price"
+    t.text "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "cpf", default: "", null: false
+    t.date "birthday", null: false
+    t.integer "role", default: 0
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "funcao", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_usuarios_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "reservas", "clientes"
-  add_foreign_key "reservas", "quartos"
+  create_table "views", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_views_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "bookings", "rooms"
+  add_foreign_key "bookings", "users"
 end

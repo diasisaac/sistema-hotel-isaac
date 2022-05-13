@@ -1,0 +1,7 @@
+<h1 class="h3">Reservas Realizadas</h1>
+
+<% if current_user.Client? %>
+  <%= render "booking_user" %>
+<% else %>
+  <%= render "booking" %>
+<% end %>
