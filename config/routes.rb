@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   devise_for :usuarios
 
   resources :reservas
-  resources :quartos
   root to: 'welcome#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
