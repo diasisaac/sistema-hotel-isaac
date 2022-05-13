@@ -1,8 +1,8 @@
 <ul class="nav flex-column">
     <li class="nav-item">
         <%= link_to dashboard_index_path, class: "nav-link" do %>
-          <i data-feather="clipboard"></i>
-          Dashboard
+            <i data-feather="clipboard"></i>
+            Dashboard
         <% end %>
     </li>
     <li class="nav-item">
@@ -11,9 +11,25 @@
             Minha Conta
         <% end %>
     </li>
-    </ul>
-    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+
+</ul>
+
+<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
     <span>Saved reports</span>
     <i data-feather="plus-circle"></i>
-    </h6>
+</h6>
+
+<ul class="nav flex-column mb-2">
+    <li class="nav-item">
+      <%= link_to new_booking_path, class: "nav-link" do %>
+        <i data-feather="list"></i>
+        Nova Reserva
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to bookings_path, class: "nav-link" do %>
+        <i data-feather="list"></i>
+        Minhas Reservas
+      <% end %>
+    </li>
 </ul>

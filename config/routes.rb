@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :bookings
   resources :rooms
-  devise_for :views
   get 'dashboard/index'
   devise_for :users
   root 'pages#home'
