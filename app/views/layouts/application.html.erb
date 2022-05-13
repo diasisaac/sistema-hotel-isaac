@@ -13,9 +13,23 @@
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body id="<%= controller.controller_name %>" class="<%= controller.action_name %>" >
-
-    <%= render "layouts/nav/pages" %>
-    <%= yield %>
+    <% if !user_signed_in? %>
+      <header>
+        <%= render "layouts/nav/pages" %>
+        <%= yield %>
+      </header>
+      <%#= render "layouts/nav/footer"%>
+    <% else %>
+      <%= render "layouts/nav/dashboard/dashboard" %>
+      <div class="container-fluid">
+        <div class="row">
+          <%= render "layouts/nav/dashboard/sidebar"%>
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+    <% end %>
 
     <!--- <p class="notice"><%= notice %></p> --->
     <!--- <p class="alert"><%= alert %></p> --->
