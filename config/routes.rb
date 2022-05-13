@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   #devise_scope :usuarios do
   #  get "/some/route" => "some_devise_controller"
   #end
-  devise_for :usuarios
 
   root to: 'welcome#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
