@@ -11,16 +11,26 @@
   </tr>
   </thead>
   <tbody class="text-center" >
-  <%= @rooms.each do |room|%>
-    <tr>
-      <td><%= room.id %></td>
-      <td><%= room.name %></td>
-      <td><%= room.capacity %></td>
-      <td><%= room.price %></td>
-      <td><%= room.detail%></td>
-      <td><%= link_to "Editar", edit_room_path(room), class: "btn btn-sm btn-info" %></td>
+    <% if !@rooms.nil? %>
+      <%= @rooms.each do |room|%>
+        <tr>
+          <td><%= room.id %></td>
+          <td><%= room.name %></td>
+          <td><%= room.capacity %></td>
+          <td><%= room.price %></td>
+          <td><%= room.detail%></td>
+          <td><%= link_to "Editar", edit_room_path(room), class: "btn btn-sm btn-info" %></td>
+          <td><%= button_to "Apagar", room, method: :delete, class: "btn btn-sm btn-danger" %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <td><%= @room.id %></td>
+      <td><%= @room.name %></td>
+      <td><%= @room.capacity %></td>
+      <td><%= @room.price %></td>
+      <td><%= @room.detail%></td>
+      <td><%= link_to "Editar", edit_room_path(@room), class: "btn btn-sm btn-info" %></td>
       <td><%= button_to "Apagar", room, method: :delete, class: "btn btn-sm btn-danger" %></td>
-    </tr>
-  <% end %>
+    <% end %>
   </tbody>
 </table>

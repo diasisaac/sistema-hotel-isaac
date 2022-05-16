@@ -1,9 +1,11 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy, :index, :show]
   before_action :set_booking, only: %i[ show edit update destroy ]
 
   # GET /bookings or /bookings.json
   def index
     @bookings = Booking.all
+    @bookings_user = Booking.where(user_id: current_user.id)
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -22,6 +24,7 @@ class BookingsController < ApplicationController
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
+    @booking.user_id = current_user.id
 
     respond_to do |format|
       if @booking.save
