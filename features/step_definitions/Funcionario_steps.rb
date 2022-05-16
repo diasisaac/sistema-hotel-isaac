@@ -1,83 +1,34 @@
 
-Given('a conta com email {string} e senha {string} existe') do |email, senha|
-  visit '/usuarios/sign_up'
-  expect(page).to have_current_path('/usuarios/sign_up')
 
-  fill_in 'usuario[email]', :with => email
-  fill_in 'usuario[password]', :with => senha
-  fill_in 'usuario[password_confirmation]', :with => senha
-  click_button 'Sign up'
+Then('eu vejo que funcionario com o email {string} foi criado') do |string|
+  expect(page).to have_content("Minha Conta")
 end
 
-Given('eu estou logado no sistema') do
-  expect(page).to have_content("Welcome! You have signed up successfully.")
-end
-
-
-Given('eu estou na pagina de criar novo quarto') do
-
-  visit "/quartos/new"
-  expect(page).to have_current_path('/quartos/new')
-
+Given('existe um funcionario cadastrado com o nome {string} o sobrenome {string}, a data de nascimento {string}, o cpf {string}, o email {string}, o tipo {string}, a senha {string}  e a confirmação {string}') do |string, string2, string3, string4, string5, string6, string7, string8|
+  visit '/users/sign_up'
+  fill_in 'First Name', with: string
+  fill_in 'Last Name', with: string2
+  fill_in 'CPF', with: string3
+  fill_in 'XXX.XXX.XXX-XX', with: string4
+  fill_in 'Email address', with: string5
+  select string6, :from => "user[role]"
+  fill_in 'Password', with: string7
+  fill_in 'Password_confirmation', with: string8
+  click_button 'Cadastrar'
 end
 
 
-When('eu crio um quarto de nome {string} e andar {string} e diaria {string} e capacidade {string} e descricao {string}') do |nome, andar, diaria, capacidade, descricao|
-
-
-  fill_in 'quarto[nome]', :with => nome
-  fill_in 'quarto[andar]', :with => andar
-  fill_in 'quarto[diaria]', :with => diaria
-  fill_in 'quarto[capacidade]', :with => capacidade
-  fill_in 'quarto[descricao]', :with => descricao
-  click_button 'Create Quarto'
-
+Then('eu vejo uma mensagem de funcionaio editado com sucesso') do
+  expect(page).to have_content("successfully")
 end
 
-Then('eu vejo que o quarto de nome {string} foi salvo') do |nome|
-
-  expect(page).to have_content(nome)
-  expect(page).to have_current_path("/quartos/" +  Quarto.last.id.to_s )
-end
-
-Given('eu estou na pagina de quartos') do
-  visit "/quartos/"
-
-end
-
-Given('o quarto de nome {string} e andar {string} e diaria {string} e capacidade {string} e descricao {string} existe') do |nome, andar, diaria, capacidade, descricao|
-
-
-  visit "/quartos/new"
-  fill_in 'quarto[nome]', :with => nome
-  fill_in 'quarto[andar]', :with => andar
-  fill_in 'quarto[diaria]', :with => diaria
-  fill_in 'quarto[capacidade]', :with => capacidade
-  fill_in 'quarto[descricao]', :with => descricao
-  click_button 'Create Quarto'
-
-end
-
-When('eu vou para página de editar quarto e edito o quarto de nome {string} e andar {string} e diaria {string} e capacidade {string} e descricao {string}') do |nome, andar, diaria, capacidade, descricao|
-
-  click_link 'Edit this quarto'
-
-  fill_in 'quarto[nome]', :with => nome
-  fill_in 'quarto[andar]', :with => andar
-  fill_in 'quarto[diaria]', :with => diaria
-  fill_in 'quarto[capacidade]', :with => capacidade
-  fill_in 'quarto[descricao]', :with => descricao
-  click_button 'Update Quarto'
-end
-
-Then('eu vejo que o quarto de nome {string} foi editado') do |nome|
-
-  expect(page).to have_content(nome)
-  expect(page).to have_current_path("/quartos/" +  Quarto.last.id.to_s )
+Then('Then eu vejo uma mensagem de cpf invalido') do
+  expect(page).to have_content("Cpf is the wrong length")
 end
 
 
-Then('eu vejo uma mensagem de erro de invalidez') do
-
-  expect(page).to have_content("1 error prohibited this quarto from being saved:")
+Given('estou na pagina de editar funcionario') do
+  visit '/users/edit'
+  expect(page).to have_current_path('/users/edit')
 end
+
