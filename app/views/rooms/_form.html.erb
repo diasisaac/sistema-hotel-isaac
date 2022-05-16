@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <%= form.label :capacity, style: "display: block" %>
-    <%= form.number_field :capacity, placeholder: "Ex.: 4", class: "form-control" %>
+    <%= form.select(:capacity, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4]]), {}, {class: "form-control"}) %>
   </div>
 
   <div class="form-group">

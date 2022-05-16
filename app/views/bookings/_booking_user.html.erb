@@ -1,28 +1,28 @@
 <table class="table table-striped table-sm">
   <thead>
-  <tr>
-    <th scope="col">Id</th>
-    <th scope="col">Cliente</th>
-    <th scope="col">Quarto</th>
-    <th scope="col">Check-in</th>
-    <th scope="col">Check-out</th>
-    <th scope="col">Hospedes</th>
-    <th scope="col">Totalt</th>
-  </tr>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Quarto</th>
+      <th scope="col">Check-in</th>
+      <th scope="col">Check-out</th>
+      <th scope="col">Hospedes</th>
+      <th scope="col">Total</th>
+    </tr>
   </thead>
   <tbody>
-  <%= @bookings_user.each do |booking| %>
-    <tr>
-      <td><%= booking.id %></td>
-      <td><%= booking.user_id %></td>
-      <td><%= booking.room_id %></td>
-      <td><%= booking.check_in %></td>
-      <td><%= booking.check_out %></td>
-      <td><%= booking.guests %></td>
-      <td><%= booking.amount %></td>
-      <td><%= button_to "Editar", edit_room_path(booking), class: "btn btn-sm btn-info" %></td>
-      <td><%= button_to "Apagar", booking, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-sm btn-danger" %></td>
-    </tr>
-  <% end %>
+    <%= @bookings_user.each do |booking| %>
+      <tr>
+        <td><%= booking.id %></td>
+        <td><%= booking.user_id %></td>
+        <td><%= booking.room_id %></td>
+        <td><%= booking.check_in %></td>
+        <td><%= booking.check_out %></td>
+        <td><%= booking.guests %></td>
+        <td><%= booking.amount %></td>
+        <td><%= button_to "Editar", edit_room_path(booking), class: "btn btn-sm btn-info" %></td>
+        <td><%= button_to "Apagar", booking, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-sm btn-danger" %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

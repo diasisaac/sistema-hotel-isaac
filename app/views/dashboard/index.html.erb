@@ -11,3 +11,7 @@
     </button>
   </div>
 </div>
+
+<% if current_user.Cliente? %>>
+  <%= render 'rooms/search_avail_rooms' %>
+<% end %>

@@ -1,12 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Bookings</h1>
+<h1>Reservas</h1>
 
-<div id="bookings">
-  <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
-  <% end %>
-</div>
+<% if current_user.Cliente? %>
+  <%= render "booking_user" %>
+<% else %>
+  <%= render "booking" %>
+<% end %>
