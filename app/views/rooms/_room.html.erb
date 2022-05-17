@@ -29,7 +29,7 @@
       <td><%= @room.capacity %></td>
       <td><%= @room.price %></td>
       <td><%= @room.detail%></td>
-      <td><%= link_to "Editar", edit_room_path(@room), class: "btn btn-sm btn-info" %></td>
+      <td><%= link_to "Editar", edit_room_path(@room), class: "btn btn-sm btn-info",id:"e-#{room.name}" %></td>
       <td><%= button_to "Apagar", room, method: :delete, class: "btn btn-sm btn-danger" %></td>
     <% end %>
   </tbody>
