@@ -1,5 +1,6 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
   <h1 class="h2">Dashboard</h1>
+
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group me-2">
       <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -12,6 +13,14 @@
   </div>
 </div>
 
-<% if current_user.Cliente? %>>
-  <%= render 'rooms/search_avail_rooms' %>
-<% end %>
+<div class="px-4 pt-5 my-5 text-center">
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4" >Olá <%= current_user.email %>! Seja bem vindo ao sistema hotel ES</p>
+    <% if current_user.Cliente? %>
+      <p class="lead mb-4" >Encontre a acomodação perfeita para suas férias agora mesmo!</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <%= render 'rooms/search_avail_rooms' %>
+      </div>
+    <% end %>
+  </div>
+</div>
