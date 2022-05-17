@@ -5,7 +5,7 @@
     <h1 class="h3 mb-3 fw-normal">Cadastrar Conta</h1>
 
     <div class="form-floating">
-      <%= f.text_field :first_name, autofocus: true, class: "form-control", id: "inputFirst_Name", placeholder: "First Name", autocomplete: "new-firt_name" %>
+      <%= f.text_field :first_name, autofocus: true, class: "form-control", id: "inputFirst_Name", placeholder: "First Name", autocomplete: "new-first_name" %>
       <label for="floatingInput">Nome</label>
     </div>
 
@@ -25,7 +25,8 @@
     </div>
 
     <div class="form-floating">
-      <%= f.select :role, User.roles.keys, {}, {class: ["custom-select", "custom-select-sm", "form-control", "form-control-sm"]} %>
+      <%= f.label :role %>
+      <%= f.select :role, ['Funcionario', 'Cliente','Admin'], {},{class: ["custom-select", "custom-select-sm", "form-control", "form-control-sm"]}%>
       <label for="floatingInput">Tipo</label>
     </div>
 
@@ -41,9 +42,9 @@
       <% end %><br />
       <label for="floatingPassword">Senha</label>
     </div>
-
+#mudei aqui
     <div class="form-floating">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password", class: "form-control", id: "inputPassword" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password_confirmation", class: "form-control", id: "inputPassword" %>
       <label for="floatingPassword">Confirme a Senha</label>
     </div>
 
