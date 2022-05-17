@@ -1,24 +1,32 @@
-<table class="table table-striped table-sm">
-  <thead class="text-center" >
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Capacidade</th>
-      <th scope="col">Preço</th>
-      <th scope="col">Detalhes</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody class="text-center" >
-    <%= @avail_rooms.each do |room|%>
+<% if !@avail_rooms.blank? %>>
+  <table class="table table-striped table-sm">
+    <thead class="text-center" >
       <tr>
-        <td><%= room.id %></td>
-        <td><%= room.name %></td>
-        <td><%= room.capacity %></td>
-        <td><%= room.price %></td>
-        <td><%= room.detail%></td>
-        <td><%= link_to "Reservar", new_booking_path( :room => room, :check_in => params[:check_in], :check_out => params[:check_out]), class: "btn btn-success" %></td>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Capacidade</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Detalhes</th>
+        <th scope="col"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody class="text-center" >
+      <%= @avail_rooms.each do |room|%>
+        <tr>
+          <td><%= room.id %></td>
+          <td><%= room.name %></td>
+          <td><%= room.capacity %></td>
+          <td><%= room.price %></td>
+          <td><%= room.detail%></td>
+          <td><%= link_to "Reservar", new_booking_path( :room_id => room.id, :check_in => params[:check_in], :check_out => params[:check_out]), class: "btn btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="px-4 pt-5 my-5 text-center">
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Infelizmente não temos quartos disponíveis para o período selecionado.</p>
+    </div>
+  </div>
+<% end %>
