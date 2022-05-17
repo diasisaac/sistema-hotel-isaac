@@ -1,4 +1,4 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a58369af0a794b3cbede0921597f68ca?branch=main)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=giclayne/sistema-hotel&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e8491bc8f0cc44d0b74c776083d969c7)](https://www.codacy.com/gh/sistema-hotel-es/sistema-hotel/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sistema-hotel-es/sistema-hotel&amp;utm_campaign=Badge_Grade)
 
 # Sistema de Hotel
 
